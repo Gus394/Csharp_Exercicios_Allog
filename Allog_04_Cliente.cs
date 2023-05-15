@@ -1,4 +1,9 @@
-namespace Projeto_Aula_4;
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 public class Cliente
 {
     public int id;
@@ -6,6 +11,11 @@ public class Cliente
     public string? endereco;
     public string? telefone;
     public string? email;
+
+    public Cliente()
+    {
+
+    }
 
     /*public Cliente(int id, string nome, string endereco, string telefone, string email)
     {

@@ -62,7 +62,7 @@ public class Menu
             Console.WriteLine("Email: ");
             cliente.telefone = Console.ReadLine();
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            Match match = regex.Match(cliente.telefone);
+            Match match = regex.Match(cliente.email);
             if (match.Success)
                 break;
             Console.WriteLine("Email invalido, tente novamente.");

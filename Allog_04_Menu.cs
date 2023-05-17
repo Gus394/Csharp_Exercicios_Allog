@@ -60,7 +60,7 @@ public class Menu
         while (true) // validar e-mail
         {
             Console.WriteLine("Email: ");
-            cliente.telefone = Console.ReadLine();
+            cliente.email = Console.ReadLine();
             Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             Match match = regex.Match(cliente.email);
             if (match.Success)

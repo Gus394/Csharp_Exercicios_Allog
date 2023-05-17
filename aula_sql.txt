@@ -1,0 +1,33 @@
+CREATE TABLE IF NOT EXISTS tipo (
+	id serial primary key,
+	nome varchar(20)
+);
+
+CREATE TABLE IF NOT EXISTS livro ( /* Lembrar do NOT EXISTS */
+	id serial primary key,
+	id_tipo int,
+	titulo varchar(100),
+	CONSTRAINT fk_tipo_livro FOREIGN KEY (id_tipo) REFERENCES tipo(id)
+);
+
+/*INSERT INTO tipo (nome) VALUES ('Digital'), ('Dicionário');*/
+
+UPDATE tipo SET nome = 'Teste' WHERE id = 2; /* Se colocar um id que não existe, nada mudará */
+
+DELETE FROM tipo WHERE id = 2; /* LEMBRAR DO WHERE!!@!! | WHERE id in (...) | WHERE id BETWEEN 1 AND 100 */
+
+SELECT * FROM tipo;
+
+INSERT INTO livro (id_tipo, titulo) VALUES (1, 'Harry Spotter'), (1, 'Inteligência Artificianl'), (3, 'Dicio');
+
+/* DELETE FROM livro WHERE id % 3 != 0; */
+
+SELECT * FROM livro;
+
+/* titulo do livro + nome do tipo */
+/* SELECT livro.titulo, tipo.nome FROM livro /* * para selecionar tudo */
+	JOIN tipo ON livro.id_tipo = tipo.id; */
+	
+SELECT COUNT(l.id) AS quantidade, t.nome AS tipo FROM livro l
+	JOIN tipo t ON l.id_tipo = t.id
+	GROUP BY t.id;
